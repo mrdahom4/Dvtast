@@ -88,7 +88,7 @@ if (err) console.error(err);
       profile[defineduser.id].credits += (+args[0]);
       profile[sender.id].credits += (-args[0]);
       let mariam = message.author.username
-message.channel.send(`**:moneybag: | ${message.author.username}, has transferrerd ` + "`" + args[0] + "$` to " + `<@${defineduser.id}>**`)
+message.channel.send(`**:moneybag: | ${message.author.username}, has transferrerd ``<@${defineduser.id}>**`)
 }
  
       });
