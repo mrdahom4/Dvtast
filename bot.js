@@ -28,31 +28,35 @@ client.on('ready', () => {
 });
 
 
-client.on("message", message => {
-let prefix = "#";
-let args = message.content.split(' ');
-  if(args[0].toLowerCase() === (prefix + "server")) {
-        let embed = new Discord.RichEmbed()
-        .addField(`:id: Server ID:`, `${message.guild.id}`, true)
-        .addField(`:calendar: Created on:`, `${moment(message.guild.createdAt).format(`D/M/YYYY h:mm`)} \n ${moment(message.guild.createdAt).locale("AR-eg").fromNow()}`,true)
-        .addField(`:crown: Owned by`, `${message.guild.owner.user.tag} [${message.guild.owner.user.id}]`,true) 
-        .addField(`:busts_in_silhouette: Members [${message.guild.members.size}]`, `**${message.guild.members.filter(c => c.presence.status !== "offline").size}** Online`, true)
-        .addField(`:speech_balloon: Channels [${message.guild.channels.size}]`,`**${message.guild.channels.filter(f => f.type === "text").size}** Text | **${message.guild.channels.filter(f => f.type === "voice").size}** Voice`,true)
-        .addField(`:earth_africa: Others`, `**Region:** ${message.guild.region} \n **Verification level:** ${message.guild.verificationLevel}`, true)  
-        .addField(`:closed_lock_with_key: Roles [${message.guild.roles.size}]`, `To see the whole list with all roles use **${prefix}roles**`, true) 
-        .setThumbnail(`${message.guild.iconURL}`)
-        .setColor(`black`)
-        .setAuthor(`${message.guild.name}`, `${message.guild.iconURL}`);
-       
-    message.channel.sendEmbed(embed);
-    }
+const invites = {};
 
+const wait = require('util').promisify(setTimeout);
+
+client.on('ready', () => {
+  wait(1000);
+
+  client.guilds.forEach(g => {
+    g.fetchInvites().then(guildInvites => {
+      invites[g.id] = guildInvites;
+    });
+  });
+});
+
+client.on('guildMemberAdd', member => {
+  member.guild.fetchInvites().then(guildInvites => {
+    const ei = invites[member.guild.id];
+    invites[member.guild.id] = guildInvites;
+    const invite = guildInvites.find(i => ei.get(i.code).uses < i.uses);
+    const inviter = client.users.get(invite.inviter.id);
+    const logChannel = member.guild.channels.find(channel => channel.name === "اسم روم الولكم");
+    logChannel.send(`${member} Invited by: <@${inviter.id}>`);
+  });
 });
 
 
 client.on("guildMemberAdd", member => {
   member.createDM().then(function (channel) {
-  return channel.send("**Welcome to DvBot Support**") 
+  return channel.send("**```Welcome to DvBot Support```**") 
 }).catch(console.error)
 })
 
