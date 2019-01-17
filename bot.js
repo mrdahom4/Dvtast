@@ -49,4 +49,11 @@ let args = message.content.split(' ');
 
 });
 
+
+client.on("guildMemberAdd", member => {
+  member.createDM().then(function (channel) {
+  return channel.send(`\`\`\`Welcome to DvBot Support`\`\`\`) 
+}).catch(console.error)
+})
+
 client.login(process.env.BOT_TOKEN);
