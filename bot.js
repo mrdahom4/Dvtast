@@ -37,8 +37,8 @@ client.on('message',async message => {
   if(args[0] === `{prefix}discrim`) {
     if(args[1]) {
       let discrim = Array.from(args[1]);
-      if(isNaN(args[1])) return message.channel.send(`- `${message.author.username}`, يجب ان تتكون هذه الخانة من ارقام وليس احرف`);
-      if(discrim.length !== 4) return message.channel.send(`- `${message.author.username}`, يجب ان يكون التاق مكون من 4 ارقام`);
+      if(isNaN(args[1])) return message.channel.send("** يجب ان تتكون هذه الخانة من ارقام وليس احرف**");
+      if(discrim.length !== 4) return message.channel.send("**يجب ان يكون التاق مكون من 4 ارقام**");
 
       tag = discrim.map(r => r.toString()).join('');
       console.log(tag);
