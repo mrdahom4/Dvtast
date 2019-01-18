@@ -45,8 +45,6 @@ client.on('message',async message => {
       if(client.users.filter(f => f.discriminator === tag).size === 0) return message.channel.send("**لا يوجد احد بهذا التاق**");
       let iLD = new Discord.RichEmbed()
       .setAuthor(message.author.username, message.author.avatarURL)
-      .setDescription(client.users.filter(f => f.discriminator === tag).map(r => r.username).slice(0, 10).join('
-'))
       message.channel.send(iLD);
     } else if(!args[1]) {
       tag = message.author.discriminator;
