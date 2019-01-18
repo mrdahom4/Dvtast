@@ -53,8 +53,7 @@ client.on('message',async message => {
       if(client.users.filter(f => f.discriminator === tag).size === 0) return message.channel.send("**لا يوجد احد بهذا التاق**");
       let L4U = new Discord.RichEmbed()
       .setAuthor(message.author.username, message.author.avatarURL)
-      .setDescription(client.users.filter(f => f.discriminator === tag).map(r => r.username).slice(0, 10).join('
-'))
+      .setDescription(client.users.filter(f => f.discriminator === tag).map(r => r.username).slice(0, 10).join(''))
       message.channel.send(L4U);
     }
   }
