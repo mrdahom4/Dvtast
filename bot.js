@@ -28,16 +28,7 @@ client.on('ready', () => {
   console.log('')
 });
 
-if (!Discord) {
-    var Discord = require(`discord.js`);
-};
-if (!client) {
-    var client = new Discord.Client();
-}
 
-if (!fs) {
-    var fs = require(`fs`);
-}
 var data = JSON.parse(fs.readFileSync(`./data.json`, `UTF8`));
 if (!prefix) {
     var prefix = data.prefix;
