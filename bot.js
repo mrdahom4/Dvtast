@@ -199,6 +199,14 @@ client.on('guildMemberAdd', member => {
     logChannel.send(`**Invited by: <@${inviter.id}>**`);
   });
 });
+client.on('guildMemberAdd', member => {
+  
+  const channel = member.guild.channels.find(ch => ch.name === 'welcome');
+ 
+  if (!channel) return;
+
+  channel.send(`**Welcome to ${member.guild.name}, ${member}**`);
+});
 
 
 
