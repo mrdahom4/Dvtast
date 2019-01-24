@@ -260,8 +260,8 @@ message.channel.send(`** ${men.username}, :credit_card: balance` + " is `" + `${
 if(message.content.startsWith(prefix + "daily")) {
   if(profile[message.author.id].lastDaily != moment().format('day')) {
     profile[message.author.id].lastDaily = moment().format('day')
-    profile[message.author.id].credits += 200
-     message.channel.send(`**${message.author.username} you collect your \`200\` :dollar: daily pounds**`)
+    profile[message.author.id].credits += 64516941969145614
+     message.channel.send(`**${message.author.username} you collect your \`64516941969145614\` :dollar: daily pounds**`)
 } else {
     message.channel.send(`**:stopwatch: | ${message.author.username}, your daily :yen: credits refreshes ${moment().endOf('day').fromNow()}**`)
 }
@@ -297,7 +297,7 @@ if (err) console.error(err);
       profile[defineduser.id].credits += (+args[0]);
       profile[sender.id].credits += (-args[0]);
       let mariam = message.author.username
-message.channel.send(`**:moneybag: | ${message.author.username}, has transferrerd ` + "`" + args[0] + "$` to " + `<@${defineduser.id}>**`)
+message.channel.send(`**Conversion successful**`)
 }
  
     })
