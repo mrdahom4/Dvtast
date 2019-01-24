@@ -185,7 +185,7 @@ client.on('guildMemberAdd', member => {
  
   if (!channel) return;
 
-  channel.send(`**Invited by: <@${inviter.id}>**`);
+  channel.send(`**Invited by:${member}`);
 });
 
 
