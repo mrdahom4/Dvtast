@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const fs = require('fs')
-var prefix = "#";
+var prefix = "+";
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
@@ -83,6 +83,30 @@ client.on('message', message => {
 
 message.channel.sendMessage('**الرجاء الانتظار ريث ما يتم صناعه الرتب **')
 }
+});
+
+client.on('message' , async (message) => {
+var prefix = "+"
+    if(message.content.startsWith(prefix + "topinv")) {
+if(message.author.bot) return;
+if(!message.channel.guild) return message.reply(' Error : \` Guild Command \`');
+  var invites = await message.guild.fetchInvites();
+    invites = invites.array();
+    arraySort(invites, 'uses', { reverse: true });
+    let possibleInvites = ['User Invited |  Uses '];
+    invites.forEach(i => {
+        if (i.uses === 0) { 
+            return;
+        }
+      possibleInvites.push(['\n\ ' +'<@'+ i.inviter.id +'>' + '  :  ' +   i.uses]);
+     //معلومه بسيطه يمديك تكرر العمليهه أكثر من مره
+    })
+    const embed = new Discord.RichEmbed()
+ .setColor('RANDOM')
+    .addField("Top Invites." ,`${(possibleInvites)}`)
+
+    message.channel.send(embed)
+    }
 });
 
 client.login(process.env.BOT_TOKEN);
