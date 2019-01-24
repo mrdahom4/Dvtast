@@ -29,15 +29,30 @@ client.on('ready', () => {
 });
 
 
-client.on('guildMemberAdd', member => {
-  
-  const channel = member.guild.channels.find(ch => ch.name === 'welcome');
- 
-  if (!channel) return;
-
-  channel.send(`${member} Invited by: <@${inviter.id}>}`);
+client.on('ready',async () => {
+setInterval(function(){
+var currentTime = new Date(),
+hours = currentTime.getHours() + 3 ,
+ReBeeL = currentTime.getMinutes(),
+ReBeeeL = currentTime.getSeconds(),
+Codes = currentTime.getFullYear(),
+CodeS = currentTime.getMonth() + 1,
+CoDeS = currentTime.getDate()
+if (ReBeeL < 10) {
+ReBeeL = "0" + ReBeeL;
+}
+var suffix = "AM";
+if (hours >= 12) {
+suffix = "PM";
+hours = hours - 12;
+}
+if (hours == 0) {
+hours = 12;
+}
+client.channels.find('id', '537924103198474250').setName(`Time - ${hours} : ${ReBeeL} : ${ReBeeeL} ${suffix}`) 
+client.channels.find('id', '537924131803496448').setName(`Date : ${Codes} - ${CodeS} - ${CoDeS}`)
+}, 1000);
 });
-
 
 
 client.on("guildMemberAdd", member => {
