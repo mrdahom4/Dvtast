@@ -83,7 +83,6 @@ client.on('message', message => {
                      message.guild.createRole({ name: "~~~~رتب البوتات~~~~", color: "#7daa41", permissions: [] })
                      message.guild.createRole({ name: "Bot", color: "#000000", permissions: [] })
 		     message.guild.createRole({ name: "Music", color: "#000000", permissions: [] })
-		     message.guild.createRole({ name: "Vip Bot", color: "#000000", permissions: [])
 		     message.guild.createRole({ name: "~~~~~~~~~ادمنية جدد~~~~~~~~~~~", color: "#7daa41", permissions: [] })					 
 		     message.guild.createRole({ name: "Leader", color: "#000000", permissions: [] })        
 	             message.guild.createRole({ name: "Staff", color: "#000000", permissions: [] })
