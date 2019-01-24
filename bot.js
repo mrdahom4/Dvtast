@@ -157,10 +157,21 @@ const w = ['w.png'];
                              
 welcomer.sendFile(canvas.toBuffer())
 
+
+
+ 
+ 
+ 
+     
+     
+                    }  )  
+     
+                   
+ 
 })
       });                    
+ }
 });
-
 
 client.on('guildMemberAdd', member => {
   
