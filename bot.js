@@ -209,7 +209,7 @@ client.on('guildMemberAdd', member => {
     const ei = invites[member.guild.id];
     const invite = guildInvites.find(i => ei.get(i.code).uses < i.uses);
     const inviter = client.users.get(invite.inviter.id);
-    const channel = member.guild.channels.find("name", "welcome");
+    const channel = member.guild.channels.find("name", "welcome2");
      channel.send(`<@${member.user.id}> ** joined; ** Invited by ** <@${inviter.id}> ** `);
   });
 });
