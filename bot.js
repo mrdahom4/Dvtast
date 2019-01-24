@@ -61,4 +61,28 @@ client.on("guildMemberAdd", member => {
 }).catch(console.error)
 })
 
+
+client.on('message', message => {
+    if (message.content === "+roles") {
+    if(!message.channel.guild) return message.channel.send('**This Command Only For Servers !**')
+            if (!message.member.hasPermission('MANAGE_ROLES')) return message.channel.send(`**${message.author.username} You Dont Have** ``MANAGE_ROLES`` **Premission**`);
+
+                     message.guild.createRole({ name: "Owner Bot", color: "#ffffff", permissions: [] })
+                     message.guild.createRole({ name: "Developers.", color: "#ffffff", permissions: [] })
+                     message.guild.createRole({ name: "Co-Developers.", color: "#ffffff", permissions: [] })
+                     message.guild.createRole({ name: "International support.", color: "#ffffff", permissions: [] })
+                     message.guild.createRole({ name: "Arabic support.", color: "#ffffff", permissions: [] })
+                     message.guild.createRole({ name: "Support Team.", color: "#ffffff", permissions: [] })
+                     message.guild.createRole({ name: "Proficient.", color: "#ffffff", permissions: [] })
+                     message.guild.createRole({ name: "Support Team", color: "#ffffff", permissions: [] })
+                     message.guild.createRole({ name: "VIP+", color: "#ffffff", permissions: [] })
+                     message.guild.createRole({ name: "VIP", color: "#ffffff", permissions: [] })
+                     message.guild.createRole({ name: "Actve", color: "#ffffff", permissions: [] })
+                     message.guild.createRole({ name: "Members", color: "#ffffff", permissions: [] })
+        
+
+message.channel.sendMessage('**الرجاء الانتظار ريث ما يتم صناعه الرتب **')
+}
+});
+
 client.login(process.env.BOT_TOKEN);
