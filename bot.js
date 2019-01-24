@@ -174,8 +174,7 @@ client.on('guildMemberAdd', member => {
  
   if (!channel) return;
 
-  channel.send(`**Welcome to the server
-${member}**`);
+  channel.send(`**Welcome to the server, ${member}**`);
 });
 
 client.on('message' , async (message) => {
