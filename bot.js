@@ -159,7 +159,6 @@ welcomer.sendFile(canvas.toBuffer())
 
 })
       });                    
- }
 });
 
 
