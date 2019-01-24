@@ -112,14 +112,14 @@ client.on('guildMemberAdd', member => {
 const w = ['w.png'];
  
          let Image = Canvas.Image,
-            canvas = new Canvas(400, 200),
+            canvas = new Canvas(800, 300),
             ctx = canvas.getContext('2d');
         fs.readFile(`${w[Math.floor(Math.random() * w.length)]}`, function (err, Background) {
             if (err) return console.log(err);
             let BG = Canvas.Image;
             let ground = new Image;
             ground.src = Background;
-            ctx.drawImage(ground, 0, 0, 400, 200);
+            ctx.drawImage(ground, 0, 0, 800, 300);
              
          
  
@@ -135,33 +135,28 @@ const w = ['w.png'];
                         ctx.textAlign = "center";
                         ctx.fillText(`welcome to ${member.guild.name}`, 300, 130);
                        
-                        ctx.font = "bold 12px Arial";
-                        ctx.fontSize = '20px';
-                        ctx.fillStyle = "#f1f1f1";
+                        ctx.font = '36px Arial';
+                        ctx.fontSize = '72px';
+                        ctx.fillStyle = "#ffffff";
                         ctx.textAlign = "center";
-                        ctx.fillText(member.user.username, 200, 150);
+                        ctx.fillText(member.user.username, 545, 177);
  
-                let Avatar = Canvas.Image;
-                              let ava = new Avatar;
-                              ava.src = buf;
-                              ctx.beginPath();
-                              ctx.arc(77, 101, 62, 0, Math.PI*2);
-                              ctx.stroke();
-                                 ctx.clip();
-                                 ctx.drawImage(ava, 13, 38, 128, 126);  
+                        let Avatar = Canvas.Image;
+                        let ava = new Avatar;
+                        ava.src = buf;
+                        ctx.beginPath();
+                        ctx.arc(169.5, 148, 126.9, -100, Math.PI * 2, true);
+                        ctx.closePath();;
+                        ctx.clip();
+                        ctx.drawImage(ava, 36, 21, 260, 260); 
+								 
+
+
                          
                
                              
 welcomer.sendFile(canvas.toBuffer())
- 
- 
- 
-     
-     
-                    }  )  
-     
-                   
- 
+
 })
       });                    
  }
