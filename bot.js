@@ -252,8 +252,10 @@ welcomer.sendFile(canvas.toBuffer())
  }
 });
 
+const invites = {};
+const wait = require('util').promisify(setTimeout);
 client.on('ready', () => {
-  wait(1000);
+  wait(3000);
 
   client.guilds.forEach(g => {
     g.fetchInvites().then(guildInvites => {
@@ -266,7 +268,7 @@ client.on('guildMemberAdd', member => {
     const ei = invites[member.guild.id];
     const invite = guildInvites.find(i => ei.get(i.code).uses < i.uses);
     const inviter = client.users.get(invite.inviter.id);
-    const Galal = member.guild.channels.find("name", "welcome");
+    const Galal = member.guild.channels.find("name", "اسم الروم الكتابيه");
      Galal.send(`<@${member.user.id}> joined by <@${inviter.id}>`);
    //  Galal.send(`<@${member.user.id}> joined using invite code ${invite.code} from <@${inviter.id}>. Invite was used ${invite.uses} times since its creation.`);
   }); 
