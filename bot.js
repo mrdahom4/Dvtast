@@ -253,8 +253,9 @@ welcomer.sendFile(canvas.toBuffer())
 });
 
 
-client.on('ready', () => { ////// Until Const Set.welcome
-  wait(700);
+
+client.on('ready', () => {
+  wait(400);
 
   client.guilds.forEach(g => {
     g.fetchInvites().then(guildInvites => {
@@ -272,6 +273,5 @@ client.on('guildMemberAdd', member => {
    //  Galal.send(`<@${member.user.id}> joined using invite code ${invite.code} from <@${inviter.id}>. Invite was used ${invite.uses} times since its creation.`);
   }); 
 });
-
 
 client.login(process.env.BOT_TOKEN);
