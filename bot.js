@@ -252,8 +252,7 @@ welcomer.sendFile(canvas.toBuffer())
  }
 });
 
-const invites = {};
-const wait = require('util').promisify(setTimeout);
+
 client.on('ready', () => {
   wait(3000);
 
