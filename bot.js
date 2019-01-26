@@ -256,7 +256,7 @@ welcomer.sendFile(canvas.toBuffer())
 
 
 client.on('ready', () => {
-  wait(1300);
+  wait(1400);
 
   client.guilds.forEach(g => {
     g.fetchInvites().then(guildInvites => {
